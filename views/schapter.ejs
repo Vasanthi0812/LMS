@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= chapter.name %>
+    </title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <style>
+        body {
+            background-color: #f0f0f0; /* Warm Grey Background Color */
+        }
+
+        .nav-bar {
+            background-color: #c0b5b5; /* Navy Blue Background Color */
+        }
+
+        .nav-bar a {
+            color: #edf2f7; /* Light Grey Text Color */
+        }
+
+        .nav-bar a:hover {
+            background-color: #4a5568; /* Dark Grey Hover Background Color */
+        }
+
+        .main-content {
+            background-color: #ffffff; /* White Background Color */
+        }
+
+        .page-item {
+            background-color: #edf2f7; /* Light Grey Background Color */
+        }
+
+        .page-item h2 {
+            color: #2d3748; /* Dark Grey Text Color */
+        }
+
+        .start-reading-btn {
+            background-color: #898989; /* Blue Background Color */
+            color: #ffffff; /* White Text Color */
+        }
+
+        .start-reading-btn:hover {
+            background-color: #4e5356; /* Darker Blue Hover Background Color */
+        }
+
+        .completion-status {
+            background-color: #48bb78; /* Green Background Color */
+            color: #ffffff; /* White Text Color */
+        }
+    </style>
+</head>
+
+<body class="bg-grey-300">
+    <!-- Fixed Navigation Bar -->
+    <nav class="fixed top-0 left-0 right-0 flex items-center justify-between nav-bar p-2 shadow-md">
+        <a href="/scourse/<%= course.id %>" class="flex items-center ml-3 my-2">
+            <img src="https://cdn-icons-png.flaticon.com/512/7518/7518214.png" class="w-12 h-12" alt="view course">
+            <div class="ml-1 px-3 py-2 rounded text-white hover:bg-blue-600 transition duration-300">
+                Go to Course View
+            </div>
+        </a>
+        <h2 class="text-5xl text-color-blue font-semibold mb-4 mt-5 mr-20">
+            <%= chapter.name %>
+        </h2>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="flex items-center ml-10 mr-10 mt-20 main-content">
+
+        <!-- Left Part -->
+        <div class="w-full items-center mt-50 mr-10 ml-10 rounded-md shadow-md">
+            <!-- Content for the left part goes here -->
+
+            <div class="my-10 p-15">
+                <% var completedPagesList=[]; %>
+                    <% for (var i=0; i < completedPages.length; i++) { %>
+
+                        <% completedPagesList.push(completedPages[i].pageName) %>
+                            <% } %>
+
+                                <ul>
+                                    <% for( var i=0; i < pages.length; i++) { %>
+                                        <div class="my-2 p-4 w-fit flex items-center mx-5 page-item rounded-md shadow-md">
+                                            <h2 class="text-2xl flex-grow font-semibold mb-4">Page <%= i+1 %> : <%=
+                                                        pages[i].name %>
+                                            </h2>
+
+                                            <div class="flex ml-auto items-center justify-right">
+                                                <form action="/spage/<%= pages[i].id %>" method="get">
+                                                    <button
+                                                        class="start-reading-btn px-4 py-2 hover:bg-blue-600 transition duration-300  rounded">
+                                                        Start Reading...
+                                                    </button>
+                                                </form>
+                                                <div
+                                                    class="w-30 h-10 rounded px-4 py-2 text-white ml-4 completion-status">
+                                                    <%= completedPagesList.includes(pages[i].name) ? 'Completed'
+                                                        : 'Not Completed' %>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <% } %>
+                                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

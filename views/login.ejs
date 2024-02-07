@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learning Management System--SignIn Page</title>
+   
+    <!-- Include Tailwind CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    <style>
+        body {
+            background-image: url('https://img.thuthuatphanmem.vn/uploads/2018/10/23/funny-white-wallpaper_101748184.png');
+            background-size: cover;
+            background-position: center;
+            background-color: #ffffff; /* White background color */
+            color: #000000; /* Black font color */
+        }
+    </style>
+</head>
+
+<body class="h-screen flex items-center justify-center">
+    <img src="https://c8.alamy.com/comp/2FRY21E/lms-learning-management-system-editable-stroke-outline-icon-isolated-on-white-background-flat-vector-illustration-pixel-perfect-64-x-64-2FRY21E.jpg"
+        alt="LMS Icon" class="w-16 h-16 rounded-full border-4 border-black absolute top-4 left-4" />
+
+    <div class="bg-white p-8 rounded shadow-md max-w-md w-full">
+        <h2 class="text-2xl font-semibold mb-6">Learning Management System</h2>
+        <% if(messages && messages.error && messages.error.length> 0) { %>
+            <% for(var i=0; i<messages.error.length; i++) { %>
+                <li class="text-black text-sm">
+                    <%= messages.error[i] %>
+                </li>
+            <% } %>
+        <% } %>
+
+        <!-- Sign-in form -->
+        <form class="mb-8 mt-2" action="/session" method="post">
+            <div class="mb-4">
+                <label for="email" class="block text-black text-sm font-medium mb-2">Email</label>
+                <input type="email" id="email" name="email"
+                    class="w-full border-black border-4 rounded-md px-3 py-2 focus:outline-none focus:border-black"
+                    required />
+            </div>
+
+            <div class="mb-4">
+                <label for="password" class="block text-black text-sm font-medium mb-2">Password</label>
+                <input type="password" id="password" name="password"
+                    class="w-full border-black border-4 rounded-md px-3 py-2 focus:outline-none focus:border-black"
+                    required />
+            </div>
+
+            <button type="submit"
+                class="w-full bg-black text-white rounded-md py-2 hover:bg-gray-800 transition duration-300">
+                Sign In
+            </button>
+        </form>
+
+        <!-- Sign-up link -->
+        <p class="text-black text-sm">
+            Don't have an account? <a href="/signup" class="text-black">Sign Up</a>
+        </p>
+    </div>
+</body>
+
+</html>

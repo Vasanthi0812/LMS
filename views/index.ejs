@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learning Management System</title>
+    <!-- Include Tailwind CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    <style>
+        body {
+            background-image: url('https://www.pixelstalk.net/wp-content/uploads/2016/10/Doodle-Wallpapers-Free-Download.png'); /* Example background image */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #ffffff;
+            margin: 0;
+            height: 100vh; /* Set height to 100vh for full screen */
+        }
+
+        header {
+            background-color: #000000; /* Black background color */
+        }
+
+        h2 {
+            color: #fffefe; /* White text color */
+        }
+
+        .bg-blue-800 {
+            background-color: #000000; /* White background color */
+            color: #ffffff; /* Black text color */
+        }
+
+        .text-yellow-400 {
+            color: #fafafa; /* White text color */
+        }
+    </style>
+</head>
+
+<body>
+    <header class="bg-blue-800 text-white py-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="https://c8.alamy.com/comp/2FRY21E/lms-learning-management-system-editable-stroke-outline-icon-isolated-on-white-background-flat-vector-illustration-pixel-perfect-64-x-64-2FRY21E.jpg"
+                    alt="Logo" class="h-10 w-10 inline-block rounded mr-2">
+                <h1 class="text-3xl inline-block font-semibold">Learning Management System</h1>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container mx-auto mt-8 p-6">
+        <h2 class="text-4xl font-semibold mb-4 text-yellow-400">
+            Welcome to our Learning Management System
+        </h2>
+
+        <div class="flex items-center justify-center py-7 text-black">
+            <div class="bg-blue-800 p-5 rounded-md text-center">
+                <h3 class="text-2xl font-semibold mb-4">
+                    Don't have an account? <a href="signup" class="text-yellow-400">Sign Up</a>
+                </h3>
+                <h3 class="text-2xl font-semibold mb-4">
+                    Already have an account..?
+                    <a href="/login" class="text-yellow-400">Sign In </a>
+                </h3>
+                <p class="text-lg">
+                    Student and Educators ...!
+                </p>
+            </div>
+        </div>
+        
+    </div>
+    <%- include('footer.ejs') %>  
+</body>
+
+</html>

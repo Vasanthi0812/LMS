@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= course.name %> - Enroll
+    </title>
+    <!-- Include Tailwind CSS styles -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to bottom, #343232, #f1e4e4); /* Dark Gray Gradient Background */
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="flex items-center justify-center h-screen">
+        <div class="bg-dark-gray w-1/2 p-8 rounded-md shadow-md text-center">
+            <!-- Course Name -->
+            <h1 class="text-5xl font-bold text-green-500 mb-4">
+                <%= course.name %>
+            </h1>
+
+            <!-- Course Description -->
+            <h3 class="text-lg mb-4">
+                <%= course.description %>
+            </h3>
+
+            <!-- Confirm Enrollment Checkbox -->
+            <label class="flex items-center space-x-5 mb-4">
+                <input type="checkbox" class="form-checkbox h-4 w-4" required>
+                <span class="text-xl"> Confirm Enrollment</span>
+            </label>
+
+            <!-- Enroll Course Button -->
+            <form action="/enrollCourse/<%= course.id %>" method="post">
+                <button type="submit"
+                    class="bg-black text-white py-2 px-4 rounded-md hover:bg-gray-900 focus:outline-none focus:ring focus:border-green-300">
+                    Enroll
+                </button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

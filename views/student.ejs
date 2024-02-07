@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Homepage</title>
+    <!-- Include Tailwind CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-image: url('https://c4.wallpaperflare.com/wallpaper/685/307/731/light-bulb-simple-drawing-simple-background-hd-wallpaper-preview.jpg');
+            background-size: cover;
+            background-position: center;
+            background-color: #1a1a1a; /* Dark Background */
+        }
+
+        .container {
+            box-shadow: 0 0 10px rgba(121, 113, 113, 0.1); /* Box shadow for container */
+            background-color: rgba(211, 210, 210, 0.9); /* Light semi-transparent background */
+        }
+
+        .text-2xl {
+            color: #000000; /* Black font color */
+        }
+
+        .font-semibold {
+            font-weight: 600;
+        }
+
+        /* Add any other styles you need */
+    </style>
+</head>
+
+<body class="bg-gray-600">
+    <%- include('header.ejs') %>
+    <nav>
+        <h1 class="text-2xl font-semibold ml-10 px-5 mt-6 ">Welcome, <%= studentName %>!</h1>
+        <div class="font-semibold text-gray-800">
+            <%= studentName %>
+        </div>
+        
+    </nav>
+
+    <!-- Student Homepage Container -->
+    <div class="container mx-auto p-8">
+
+        <!-- Enrolled Courses Container -->
+        <div class="mb-8">
+            <h2 class="text-xl font-semibold mb-4">Enrolled Courses</h2>
+
+            <% for( var i=0; i < enrolledCourses.length; i++) { %>
+            <!-- List of Enrolled Courses -->
+            <div class="bg-white p-4 m-4 border-blue-400 rounded-md w-4/5">
+                <h3 class="text-lg font-semibold mb-2">
+                    <%= i+1 %> : <%= enrolledCourses[i].name %>
+                </h3>
+                <div class="flex items-center justify-middle">
+                    <a href="/scourse/<%=enrolledCourses[i].id%>" class="block text-center">
+                        <div
+                            class="w-36 h-12 bg-gray-500 text-white rounded-md  m-3 cursor-pointer hover:bg-gray-600 transition duration-300">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZQuIy4SwPb1OmVKYyCO5lmXiV4JBoUjT9-TpO1Vl4mvTsy87KeZmgsm0SfA&s"
+                                class=" w-35 h-12 mx-10 my-1 flex items-center justify-middle"
+                                alt="Start course">
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <% } %>
+
+            <!-- Available Courses Container -->
+            <div>
+                <h2 class="text-xl font-semibold mb-4">Available Courses</h2>
+                <% for( var i=0; i < availcourses.length; i++) { %>
+                <!-- List of Available Courses -->
+                <div class="bg-white p-4 m-8 rounded-md w-3/4">
+                    <h3 class="text-lg font-semibold mb-2">
+                        <%= availcourses[i].name%>
+                    </h3>
+                    <p>
+                        <%= availcourses[i].description %>
+                    </p>
+                    <div class="flex items-center justify-content mx-20">
+                        <!-- Enroll Box -->
+                        <a href="/enrollCourse/<%=availcourses[i].id %>" class="block text-center">
+                            <div
+                                class="w-40 h-20 flex items-center  bg-gray-500 text-white rounded-md px-2 py-3 m-3 cursor-pointer hover:bg-gray-600 transition duration-300">
+                                <img
+                                    src="https://media.istockphoto.com/id/1394911378/vector/award-or-medal-outline-icon.jpg?s=612x612&w=0&k=20&c=s_lqG2dSbfaZDvHRCTnW3le751kFmMPPPU70G9sXy8o="
+                                    class=" w-35 h-12 mx-4 my-1 flex items-center justify-middle"
+                                    alt="enroll course">
+                                <h3 class="text-sm font-semibold mb-2">Enroll Course</h3>
+                            </div>
+                        </a>
+                        <!-- View Box -->
+                        <a href="/viewCourse/<%=availcourses[i].id %>" class="block text-center">
+                            <div
+                                class="w-40 h-20 flex items-center  bg-gray-500 text-white rounded-md px-2 py-3 m-3 cursor-pointer hover:bg-gray-600 transition duration-300">
+                                <img src="https://static.thenounproject.com/png/2040082-200.png"
+                                    class=" w-35 h-12 mx-4 my-1 flex items-center justify-middle"
+                                    alt="view course">
+                                <h3 class="text-sm font-semibold mb-2">View Course</h3>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <% } %>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

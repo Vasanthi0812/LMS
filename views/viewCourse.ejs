@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= course.name %> - View Course
+    </title>
+    <!-- Include Tailwind CSS styles -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-grey-600 flex items-center justify-center ">
+    <div class="container w-1/2 mx-auto p-8 bg-white rounded-lg shadow-md flex flex-col items-center">
+
+        <!-- Course Name -->
+        <h2 class="text-5xl text-gray-500 font-semibold mb-4">
+            <%= course.name %>
+        </h2>
+
+        <!-- Course Description -->
+        <p class="text-lg text-gray-600 mb-4">
+            <%= course.description %>
+        </p>
+
+        <!-- List of Chapters -->
+        <div class="mt-2 p-6">
+            <h2 class="text-3xl font-semibold mb-2">List of Chapters:</h2>
+            <ul>
+                <% for( var i=0; i < chapters.length; i++) { %>
+
+                    <li class="mb-2 text-xl border-b border-gray-300 py-2">
+                        Chapter <%= i+1 %> : <%= chapters[i].name %>
+                    </li>
+
+                    <% } %>
+            </ul>
+        </div>
+
+        <!-- Enroll Course Button -->
+        <div class="w-full mt-auto">
+            <div
+                class="w-50 h-12 bg-green-500 text-white rounded-md px-2 py-3 mx-20 cursor-pointer hover:bg-green-700 transition duration-300">
+                <a href="/enrollCourse/<%=course.id %>" class="block text-center">
+                    <h3 class="text-xl font-semibold mb-2">Enroll Course</h3>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

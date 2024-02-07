@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignOut Page</title>
+    <!-- Include Tailwind CSS styles -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+       
+
+        .logout-container {
+            background-color: #ffffff; 
+        }
+
+        .text-dark-neon-purple {
+            color: #7e6f8b; 
+        }
+
+        .bg-dark-neon-blue {
+            background-color: #3a3a4f; 
+        }
+
+        .hover\:bg-dark-neon-red:hover {
+            background-color: #766363; 
+        }
+
+        .focus\:border-dark-neon-purple:focus {
+            border-color: #9e8ab1; 
+        }
+    </style>
+</head>
+
+<body class="bg-dark-neon-blue h-screen flex items-center justify-center">
+    <div class="logout-container p-8 rounded-md shadow-md text-center">
+        <div class="text-dark-neon-purple text-5xl mb-4">
+            <!-- Tick icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                class="h-16 w-16 mx-auto">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+        </div>
+        <h1 class="text-3xl font-bold mb-4 text-dark-neon-purple">Logged Out Successfully!</h1>
+        <p class="text-gray-600 mb-4">You can now sign in with email and password.</p>
+        <a href="/login"
+            class="bg-dark-neon-blue text-white mb-4 py-2 px-4 rounded-md hover:bg-dark-neon-red focus:outline-none focus:ring focus:border-dark-neon-purple">
+            Sign In
+        </a>
+        <p class="text-gray-600 mt-3 mb-4">Go Back to Home.</p>
+        <a href="/"
+            class="bg-dark-neon-blue text-white mb-4 py-2 px-4 rounded-md hover:bg-dark-neon-red focus:outline-none focus:ring focus:border-dark-neon-purple">
+            Home
+        </a>
+    </div>
+</body>
+
+</html>
